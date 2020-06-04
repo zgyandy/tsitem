@@ -2,12 +2,23 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">{{$store.state.state}}</router-link>
     </div>
     <router-view/>
   </div>
 </template>
-
+<script>
+export default {
+  data () {
+    return {
+      message: process.env.VUE_APP_SECRET
+    }
+  },
+  mounted () {
+    console.log(process.env.NODE_ENV)
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
